@@ -118,12 +118,12 @@ function getPlayers(res, Group, RoleTable, target) {
   return new Promise(function(resolve, reject) {
     roblox.getPlayers({ group: Group, roleset: RoleTable })
       .then(playersTable => {
-        for (var i = 0; i < playersTable.length; i++) {
-          let plrdata = playersTable[i]
-          delete plrdata.buildersClubMembershipType
+       // for (var i = 0; i < playersTable.length; i++) {
+       //   let plrdata = playersTable[i]
+      //    delete plrdata.buildersClubMembershipType
           //SetRank(res, Group, plrdata.userId, 1)
           //SetRank(res, Group, plrdata.userId, 1)
-        }
+     //   }
       
 
         resolve(playersTable); // Resolve the promise
