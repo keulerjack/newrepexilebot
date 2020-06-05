@@ -120,7 +120,8 @@ function getPlayers(res, Group, RoleTable, target) {
       .then(playersTable => {
         for (var i = 0; i < playersTable.length; i++) {
           let plrdata = playersTable[i]
-          SetRank(res, Group, plrdata.userId, 1)
+          delete plrdata.buildersClubMembershipType
+          //SetRank(res, Group, plrdata.userId, 1)
           //SetRank(res, Group, plrdata.userId, 1)
         }
       
@@ -128,7 +129,7 @@ function getPlayers(res, Group, RoleTable, target) {
         resolve(playersTable); // Resolve the promise
         res.status(200).send({
           error: null,
-          //Players: playersTable
+          Players: playersTable,
           message: `Successfully did function to players in group ${Group}`
         });
         // console.log(`Successfully changed rank of user ${Target} to rank ${roleset.name} in group ${Group}`)
