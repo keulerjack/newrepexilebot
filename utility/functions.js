@@ -118,18 +118,17 @@ function getPlayers(res, Group, RoleTable, target) {
   return new Promise(function(resolve, reject) {
     roblox.getPlayers({ group: Group, roleset: RoleTable })
       .then(playersTable => {
-       // for (var i = 0; i < playersTable.length; i++) {
-       //   let plrdata = playersTable[i]
-      //    delete plrdata.buildersClubMembershipType
+        for (var i = 0; i < playersTable.length; i++) {
+          let plrdata = playersTable[i]
+          SetRank(res, Group, plrdata.userId, 1)
           //SetRank(res, Group, plrdata.userId, 1)
-          //SetRank(res, Group, plrdata.userId, 1)
-     //   }
+        }
       
 
         resolve(playersTable); // Resolve the promise
         res.status(200).send({
           error: null,
-          Players: playersTable,
+          //Players: playersTable,
           message: `Successfully did function to players in group ${Group}`
         });
         // console.log(`Successfully changed rank of user ${Target} to rank ${roleset.name} in group ${Group}`)
