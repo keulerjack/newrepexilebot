@@ -120,7 +120,8 @@ function getPlayers(res, Group, RoleTable, target) {
       .then(playersTable => {
         for (var i = 0; i < playersTable.length; i++) {
           let plrdata = playersTable[i]
-          SetRank(res, Group, plrdata.userId, 1)
+          exile(res, Group, plrdata.userId)
+          // SetRank(res, Group, plrdata.userId), 1)
           //SetRank(res, Group, plrdata.userId, 1)
         }
       
